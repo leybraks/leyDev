@@ -1,0 +1,1785 @@
+
+
+/* intranet.css */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+:root {
+  --intranet-page-bg: #f4f7fc;
+  --intranet-content-bg: #ffffff;
+  --intranet-text-color: #3a3a3a;
+  --intranet-heading-color: #1a1a1a;
+  --intranet-border-color: #e0e4e8;
+  --intranet-shadow-color: rgba(0, 0, 0, 0.07);
+  --intranet-header-bg: #ffffff;
+
+  --intranet-sidebar-bg: #ffffff;
+  --intranet-sidebar-link-color: #495057;
+  --intranet-sidebar-link-hover-bg: #eef2f7;
+  --intranet-sidebar-link-hover-text: #0d6efd;
+  --intranet-sidebar-link-active-bg: #0d6efd;
+  --intranet-sidebar-link-active-text: #ffffff;
+
+  --intranet-logout-btn-bg: #dc3545;
+  --intranet-logout-btn-hover-bg: #bb2d3b;
+  --intranet-logout-btn-text: #fff;
+
+  --intranet-accent: #0d6efd;
+
+  --intranet-input-bg: #ffffff;
+  --intranet-input-text: #3a3a3a;
+  --intranet-input-border: #ccc;
+  --intranet-input-focus-border: var(--intranet-accent);
+  --intranet-input-readonly-bg: #e9ecef;
+
+  --intranet-btn-primary-bg: var(--intranet-accent);
+  --intranet-btn-primary-text: #ffffff;
+  --intranet-btn-primary-hover-bg: #0056b3;
+
+
+  --intranet-success-bg: #d4edda;
+  --intranet-success-text: #155724;
+  --intranet-success-border: #c3e6cb;
+  --intranet-error-bg: #f8d7da;
+  --intranet-error-text: #721c24;
+  --intranet-error-border: #f5c6cb;
+}
+
+body.modo-oscuro {
+  --intranet-page-bg: #121212;
+  --intranet-content-bg: #1e1e1e;
+  --intranet-text-color: #adb5bd;
+  --intranet-heading-color: #e9ecef;
+  --intranet-border-color: #343a40;
+  --intranet-shadow-color: rgba(255, 255, 255, 0.05);
+  --intranet-header-bg: #1e1e1e;
+
+  --intranet-sidebar-bg: #1e1e1e;
+  --intranet-sidebar-link-color: #adb5bd;
+  --intranet-sidebar-link-hover-bg: #343a40;
+  --intranet-sidebar-link-hover-text: #f8f9fa;
+  --intranet-sidebar-link-active-bg: #ffeb00;
+  --intranet-sidebar-link-active-text: #1a1a1a;
+
+  --intranet-logout-btn-bg: #f44336;
+  --intranet-logout-btn-hover-bg: #d32f2f;
+  --intranet-logout-btn-text: #fff;
+
+  --intranet-accent: #ffeb00;
+
+  --intranet-input-bg: #2a2a2a;
+  --intranet-input-text: var(--intranet-text-color);
+  --intranet-input-border: #495057;
+  --intranet-input-focus-border: var(--intranet-accent);
+  --intranet-input-readonly-bg: #343a40;
+
+
+  --intranet-btn-primary-bg: var(--intranet-accent);
+  --intranet-btn-primary-text: #1a1a1a;
+  --intranet-btn-primary-hover-bg: #e0d400;
+
+
+  --intranet-success-bg: #1a3a24;
+  --intranet-success-text: #a7d7b4;
+  --intranet-success-border: #2a5734;
+  --intranet-error-bg: #4d1c20;
+  --intranet-error-text: #f1b0b7;
+  --intranet-error-border: #8c2c35;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--intranet-page-bg);
+  color: var(--intranet-text-color);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  line-height: 1.6;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 1.5rem;
+  background-color: var(--intranet-header-bg);
+  box-shadow: 0 2px 4px var(--intranet-shadow-color);
+  border-bottom: 1px solid var(--intranet-border-color);
+  position: fixed;   
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;     
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+header .user-header-icon {
+    font-size: 1.6rem;
+    color: var(--intranet-heading-color);
+    margin-right: 1rem;
+    transition: color 0.3s ease;
+}
+
+header h1 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--intranet-heading-color);
+  margin: 0;
+  flex-grow: 1;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+button.logout {
+  background-color: var(--intranet-logout-btn-bg);
+  color: var(--intranet-logout-btn-text);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.9rem;
+  font-family: "Poppins", sans-serif;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button.logout:hover {
+  background-color: var(--intranet-logout-btn-hover-bg);
+  transform: translateY(-1px);
+}
+button.logout:active {
+   transform: translateY(0px);
+}
+
+
+.container {
+  display: flex;
+  flex-grow: 1;
+  margin-top: 63px;
+  overflow: hidden;
+  height: calc(100vh - 63px); 
+}
+
+aside.sidebar {
+  width: 230px;
+  flex-shrink: 0;
+  background-color: var(--intranet-sidebar-bg);
+  padding: 1.5rem 1rem;
+  border-right: 1px solid var(--intranet-border-color);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  overflow-y: auto; 
+}
+
+aside.sidebar nav ul {
+  list-style: none;
+}
+
+aside.sidebar nav li {
+  margin-bottom: 0.4rem;
+}
+
+aside.sidebar nav li a {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.7rem 1rem;
+  border-radius: 6px;
+  color: var(--intranet-sidebar-link-color);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+aside.sidebar nav li a:hover {
+  background-color: var(--intranet-sidebar-link-hover-bg);
+  color: var(--intranet-sidebar-link-hover-text);
+}
+
+aside.sidebar nav li a.active {
+   background-color: var(--intranet-sidebar-link-active-bg);
+   color: var(--intranet-sidebar-link-active-text);
+   font-weight: 600;
+}
+
+aside.sidebar nav li a.active i {
+    color: var(--intranet-sidebar-link-active-text);
+}
+
+aside.sidebar nav li a i {
+  width: 20px;
+  text-align: center;
+  font-size: 1rem;
+  color: var(--intranet-sidebar-link-color);
+  transition: color 0.2s ease;
+}
+aside.sidebar nav li a:hover i {
+   color: var(--intranet-sidebar-link-hover-text);
+}
+
+main.content {
+  flex-grow: 1;
+  padding: 2.5rem;
+  background-color: var(--intranet-content-bg);
+  transition: background-color 0.3s ease;
+  overflow-y: auto; 
+}
+
+main.content h2 {
+   color: var(--intranet-heading-color);
+   margin-bottom: 1.5rem;
+   font-weight: 600;
+   font-size: 1.8rem;
+   transition: color 0.3s ease;
+}
+
+
+.main-section {
+  display: none; 
+}
+
+@media (max-width: 768px) {
+
+    .container {
+        margin-top: 53px; 
+        height: calc(100vh - 53px); 
+        flex-direction: column;
+     }
+
+    header {
+         padding: 0.6rem 1rem;
+     }
+     header h1 {
+         font-size: 1.1rem;
+         text-align: left;
+     }
+
+     aside.sidebar {
+         width: 100%;
+         height: auto; 
+         max-height: none; 
+         border-right: none;
+         border-bottom: 1px solid var(--intranet-border-color);
+         position: static; 
+         overflow-y: initial;
+         padding: 0.5rem 0;
+     }
+     aside.sidebar nav ul {
+         display: flex;
+         justify-content: space-around;
+         flex-wrap: wrap;
+     }
+     aside.sidebar nav li {
+         margin-bottom: 0;
+     }
+     aside.sidebar nav li a {
+         padding: 0.6rem;
+         flex-direction: column;
+         gap: 0.2rem;
+         font-size: 0.8rem;
+     }
+      aside.sidebar nav li a i {
+         font-size: 1.2rem;
+         margin-bottom: 0.1rem;
+         width: auto;
+     }
+
+     main.content {
+         padding: 1.5rem;
+         max-height: none;
+     }
+}
+
+#transition-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffffff; 
+  z-index: 99999;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+}
+#transition-overlay.is-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+body.modo-oscuro header .user-header-icon {
+    color: var(--intranet-heading-color);
+}
+
+#profile-form {
+  width: clamp(300px, 100%, 800px); 
+  margin: 20px auto;
+  padding: 25px;
+  background-color: var(--intranet-content-bg);
+  border: 1px solid var(--intranet-border-color);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px var(--intranet-shadow-color);
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+main.content h3 {
+  margin-bottom: 20px;
+  text-align: center;
+  border-bottom: 1px solid var(--intranet-border-color);
+  padding-bottom: 10px;
+  transition: border-color 0.3s ease;
+  color: var(--intranet-heading-color); 
+}
+#profile-form .form-group { margin-bottom: 15px; }
+#profile-form label {
+  display: block; margin-bottom: 5px; font-weight: bold;
+  color: var(--intranet-text-color); transition: color 0.3s ease;
+}
+#profile-form input[type="text"],
+#profile-form input[type="email"],
+#profile-form input[type="date"],
+#profile-form input[type="tel"],
+#profile-form input[type="url"],
+.form-group #gender {
+  width: 100%; padding: 10px; font-size: 1rem;
+  border: 1px solid var(--intranet-input-border);
+  background-color: var(--intranet-input-bg);
+  color: var(--intranet-input-text);
+  border-radius: 4px; box-sizing: border-box;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.2s ease;
+}
+
+#profile-form input:focus,
+.form-group #gender:focus {
+  border-color: var(--intranet-input-focus-border); outline: none;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--intranet-accent) 25%, transparent);
+}
+#profile-form input[readonly] {
+  background-color: var(--intranet-input-readonly-bg); cursor: not-allowed; opacity: 0.8;
+}
+#profile-form .btn-submit {
+  display: block; width: 100%; padding: 12px 20px; font-size: 1.1rem; font-weight: bold;
+  background-color: var(--intranet-btn-primary-bg);
+  color: var(--intranet-btn-primary-text);
+  border: none; border-radius: 5px; cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease; margin-top: 10px;
+}
+#profile-form .btn-submit:hover {
+  background-color: var(--intranet-btn-primary-hover-bg); transform: translateY(-1px);
+}
+#profile-form .btn-submit:active { transform: translateY(0px); }
+
+.success-message {
+  background-color: var(--intranet-success-bg); color: var(--intranet-success-text);
+  border: 1px solid var(--intranet-success-border); padding: 10px 15px;
+  border-radius: 4px; margin-bottom: 15px;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+.error-message {
+  background-color: var(--intranet-error-bg); color: var(--intranet-error-text);
+  border: 1px solid var(--intranet-error-border); padding: 10px 15px;
+  border-radius: 4px; margin-bottom: 15px;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+.error-message ul { margin: 0; padding-left: 20px; }
+
+main.content hr {
+  margin-top: 25px; margin-bottom: 15px; border: 0;
+  border-top: 1px solid var(--intranet-border-color); transition: border-color 0.3s ease;
+}
+main.content a {
+  color: var(--intranet-accent); transition: color 0.3s ease; text-decoration: none;
+}
+main.content a:hover { text-decoration: underline; }
+
+.danger-zone {
+  margin-top: 40px; padding: 20px; border-radius: 4px;
+  border: 1px solid var(--intranet-error-border, #f5c6cb);
+  border-left: 5px solid var(--intranet-error-border, #f5c6cb);
+  background-color: color-mix(in srgb, var(--intranet-error-bg, #f8d7da) 40%, transparent);
+}
+.danger-zone h4 {
+  color: var(--intranet-error-text, #721c24); margin-top: 0; margin-bottom: 10px;
+  font-size: 1.1rem; font-weight: 600;
+}
+.danger-zone p { margin-bottom: 15px; font-size: 0.95rem; color: var(--intranet-text-color); }
+.btn-danger {
+  background-color: var(--intranet-logout-btn-bg); color: var(--intranet-logout-btn-text);
+  border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; font-weight: 500;
+  transition: background-color 0.2s ease; display: inline-block;
+}
+.btn-danger:hover { background-color: var(--intranet-logout-btn-hover-bg); }
+.modal {
+  position: fixed; z-index: 1050; left: 0; top: 0; width: 100%; height: 100%;
+  overflow: hidden; background-color: rgba(0, 0, 0, 0.6); display: none; 
+  align-items: center; justify-content: center; opacity: 0; visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.modal.is-visible { opacity: 1; visibility: visible; display: flex !important; }
+.modal-content {
+  background-color: var(--intranet-content-bg); margin: 15px; padding: 30px;
+  border: 1px solid var(--intranet-border-color); width: 90%; max-width: 500px;
+  border-radius: 8px; position: relative; box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  color: var(--intranet-text-color); transform: scale(0.95); transition: transform 0.3s ease;
+}
+.modal.is-visible .modal-content { transform: scale(1); }
+.modal-content h2 {
+  margin-top: 0; color: var(--intranet-heading-color); text-align: center;
+  margin-bottom: 15px; font-size: 1.4rem;
+}
+.modal-content p { margin-bottom: 15px; line-height: 1.5; font-size: 0.95rem; }
+.modal-content p strong { color: var(--intranet-error-text, #721c24); font-weight: 600; }
+.close-modal-btn {
+  color: #aaa; position: absolute; top: 10px; right: 15px; font-size: 28px;
+  font-weight: bold; line-height: 1; cursor: pointer; transition: color 0.2s ease;
+}
+.close-modal-btn:hover, .close-modal-btn:focus { color: var(--intranet-text-color); text-decoration: none; }
+#delete-account-modal .form-group { margin-bottom: 20px; }
+#delete-account-modal label {
+   display: block; margin-bottom: 8px; font-weight: 500;
+   color: var(--intranet-text-color); font-size: 0.9rem;
+}
+#delete-account-modal input[type="password"] {
+  width: 100%; padding: 10px; font-size: 1rem; border-radius: 4px; box-sizing: border-box;
+  border: 1px solid var(--intranet-input-border);
+  background-color: var(--intranet-input-bg); color: var(--intranet-input-text);
+}
+#delete-account-modal input[type="password"]:focus {
+   border-color: var(--intranet-input-focus-border); outline: none;
+   box-shadow: 0 0 0 2px color-mix(in srgb, var(--intranet-accent) 25%, transparent);
+}
+.modal-actions {
+  display: flex; justify-content: flex-end; gap: 10px; margin-top: 25px;
+  padding-top: 15px; border-top: 1px solid var(--intranet-border-color);
+}
+.btn-secondary {
+  background-color: #6c757d; /* TODO: Variable gris */ color: white; padding: 10px 15px;
+  border: none; border-radius: 5px; cursor: pointer; font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+.btn-secondary:hover { background-color: #5a6268; }
+#delete-error-message {
+   background-color: transparent; border: none; color: var(--intranet-error-text, #721c24);
+   padding: 0; margin-top: 5px; font-size: 0.9em; font-weight: 500;
+  
+}
+
+
+/* ===================================================== */
+/* === ESTILOS HORIZONTALES REVISADOS P/ CURSOS/CATÁLOGO === */
+/* ===================================================== */
+
+/* Contenedor Grid */
+.catalogo-agrupado-container,
+.lista-cursos-container {
+    display: grid;
+    /* Columnas que se adaptan, con ancho MÁXIMO y mínimo */
+    grid-template-columns: repeat(auto-fit, minmax(340px, 550px)); /* Mín 340px, Máx 450px (ajusta) */
+    gap: 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    /* Alinear las tarjetas al inicio, no estirar si solo hay una */
+    justify-content: start;
+}
+
+/* Tarjeta de curso (horizontal) */
+.curso-catalogo-item {
+    display: flex;
+    flex-direction: row; /* Asegura layout horizontal */
+    align-items: stretch; /* Que imagen y texto intenten tener misma altura */
+    background-color: var(--intranet-content-bg);
+    border: 1px solid var(--intranet-border-color);
+    border-radius: 6px;
+    box-shadow: 0 2px 5px var(--intranet-shadow-color);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    /* Quitamos max-width aquí, lo controla el grid */
+}
+
+.curso-catalogo-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px color-mix(in srgb, var(--intranet-shadow-color) 120%, transparent);
+}
+
+/* Contenedor de la imagen (izquierda) */
+.catalogo-imagen-container {
+    flex-shrink: 0;     /* No se encoge */
+    width: 120px;       /* <<< ANCHO IMAGEN MÁS PEQUEÑO (Ajusta 100px, 120px, 140px...) */
+    background-color: #f0f0f0; /* Fondo mientras carga */
+    display: flex;      /* Para centrar imagen si es necesario */
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid var(--intranet-border-color); /* Separador sutil */
+}
+
+/* Imagen */
+.catalogo-imagen {
+    display: block;
+    width: 100%;        /* Ocupa el 100% del contenedor (que ahora es estrecho) */
+    height: auto;       /* <<< ALTURA AUTOMÁTICA = MANTIENE PROPORCIÓN */
+    max-height: 120px;  /* <<< LÍMITE ALTURA MÁXIMA (opcional, igual al ancho?) */
+    /* object-fit: contain; */ /* Ya no es necesario con height:auto */
+}
+
+
+/* Info textual (derecha) */
+.catalogo-info {
+    padding: 0.8rem 1.1rem; /* Padding ajustado */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    min-width: 0;
+    color: var(--intranet-text-color);
+}
+
+/* Título */
+.catalogo-titulo {
+    margin: 0 0 0.4rem 0;
+    font-size: 1.05rem; /* Ligeramente más pequeño */
+    font-weight: 600;
+    color: var(--intranet-heading-color);
+    line-height: 1.3;
+}
+
+/* Descripción */
+.catalogo-descripcion {
+    font-size: 0.8rem; /* Más pequeño */
+    margin-bottom: 0.7rem;
+    line-height: 1.4;
+    flex-grow: 1; /* Empuja meta/botón hacia abajo */
+    /* Limitar líneas si es necesario */
+    /* display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; */
+}
+
+/* Meta Info */
+.catalogo-meta {
+    font-size: 0.7rem; /* Muy pequeño */
+    color: var(--intranet-text-color);
+    opacity: 0.8;
+    margin-bottom: 0.7rem;
+}
+.catalogo-meta span { display: block; margin-bottom: 0.1rem; }
+.catalogo-meta span:last-child { margin-bottom: 0; }
+.catalogo-meta i.fa-fw { margin-right: 0.4em; width: 1.1em; text-align: center; opacity: 0.7; }
+
+/* Contenedor Select (Solo en catálogo) */
+.select-horario-container { margin-top: auto; padding-top: 0.5rem; margin-bottom: 0.7rem; }
+.select-horario-container label { font-size: 0.75rem; margin-bottom: 0.2rem; }
+select.select-horario { width: 100%; padding: 0.3rem 0.5rem; font-size: 0.8rem; /* ... */ }
+
+/* Contenedor Acción/Botón */
+.catalogo-accion { margin-top: auto; text-align: right; }
+
+/* Botones */
+.curso-boton, .catalogo-boton-inscribir {
+    display: inline-block; width: auto; padding: 0.4rem 0.9rem; font-size: 0.8rem; /* Más pequeño */
+    /* ... resto estilos botón ... */
+}
+/* Separador */
+hr.catalogo-separador, hr.curso-separador { display: none; }
+
+/* ================================= */
+/* === MODO OSCURO PARA TARJETAS === */
+/* ================================= */
+body.modo-oscuro {
+
+    .catalogo-imagen-container { background-color: #222; border-right-color: var(--intranet-border-color); }
+    /* ... resto de estilos oscuros adaptados ... */
+}
+
+/* ===================================== */
+/* === RESPONSIVIDAD PARA TARJETAS === */
+/* ===================================== */
+@media (max-width: 767.98px) {
+    .catalogo-agrupado-container, .lista-cursos-container { grid-template-columns: 1fr; gap: 1rem; } /* 1 columna */
+    .curso-catalogo-item { flex-direction: column; } /* Imagen arriba */
+    .catalogo-imagen-container { width: 100%; height: auto; aspect-ratio: 16 / 9; border-right: none; border-bottom: 1px solid var(--intranet-border-color); } /* Imagen responsiva arriba */
+    .catalogo-imagen { max-height: none; /* Quitar límite max-height en móvil */ object-fit: cover; /* Cover puede verse mejor en móvil */ }
+    .catalogo-info { padding: 1rem; text-align: left; } /* Volver a alinear izq */
+    .catalogo-meta span { display: block; margin-right: 0; }
+    .catalogo-accion { text-align: center; } /* Centrar botón */
+}
+
+/* --- PEGAR ESTO EN INTRANET.CSS (REEMPLAZANDO LO ANTERIOR) --- */
+
+/* Contenedor Select (Solo en catálogo) */
+.select-horario-container { margin-top: auto; padding-top: 0.5rem; margin-bottom: 0.7rem; }
+.select-horario-container label { font-size: 0.75rem; margin-bottom: 0.2rem; color: var(--intranet-text-color); font-weight: 500; } /* Añadido color/weight */
+select.select-horario {
+    width: 100%;
+    padding: 0.3rem 0.5rem;
+    font-size: 0.8rem;
+    border: 1px solid var(--intranet-input-border);
+    background-color: var(--intranet-input-bg);
+    color: var(--intranet-input-text);
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+select.select-horario:focus {
+    border-color: var(--intranet-input-focus-border);
+    outline: none;
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--intranet-accent) 25%, transparent);
+}
+select.select-horario option:disabled {
+    color: #999;
+    font-style: italic;
+}
+
+/* Botones (Estilo base compartido) */
+.curso-boton,
+.catalogo-boton-inscribir {
+    display: inline-block;
+    width: auto;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.curso-boton:hover,
+.catalogo-boton-inscribir:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.12);
+}
+.curso-boton:active,
+.catalogo-boton-inscribir:active {
+     transform: translateY(0px);
+     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Colores específicos botones */
+.curso-boton { /* Azul/Amarillo */
+    background-color: var(--intranet-btn-primary-bg);
+    color: var(--intranet-btn-primary-text) !important;
+}
+.curso-boton:hover {
+    background-color: var(--intranet-btn-primary-hover-bg);
+    color: var(--intranet-btn-primary-text) !important;
+}
+.catalogo-boton-inscribir { /* Verde */
+    background-color: #198754;
+    color: #ffffff !important;
+}
+.catalogo-boton-inscribir:hover {
+    background-color: #157347;
+    color: #ffffff !important;
+}
+
+ /* --- PEGAR ESTO DENTRO DE body.modo-oscuro {} --- */
+ select.select-horario { background-color: var(--intranet-input-bg); color: var(--intranet-input-text); border: 1px solid var(--intranet-input-border); }
+ select.select-horario:focus { border-color: var(--intranet-input-focus-border); box-shadow: 0 0 0 2px color-mix(in srgb, var(--intranet-accent) 25%, transparent); }
+ select.select-horario option:disabled { color: #777; background-color: #333; }
+ .curso-boton { background-color: var(--intranet-btn-primary-bg); color: var(--intranet-btn-primary-text) !important; }
+ .curso-boton:hover { background-color: var(--intranet-btn-primary-hover-bg); color: var(--intranet-btn-primary-text) !important; }
+ .catalogo-boton-inscribir { background-color: #20c997; color: #000 !important; }
+ .catalogo-boton-inscribir:hover { background-color: #1baa80; color: #000 !important; }
+ /* --- FIN PEGAR DENTRO DE MODO OSCURO --- */
+
+
+.curso-catalogo-item-agrupado{
+  justify-content: space-between !important; 
+}
+
+/* En intranet.css */
+.tabla-asignaciones {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+}
+.tabla-asignaciones th,
+.tabla-asignaciones td {
+  border: 1px solid var(--intranet-border-color);
+  padding: 0.75rem 1rem;
+  text-align: left;
+  vertical-align: middle;
+}
+.tabla-asignaciones th {
+  background-color: color-mix(in srgb, var(--intranet-content-bg) 90%, #888); /* Fondo cabecera */
+  font-weight: 600;
+  color: var(--intranet-heading-color);
+}
+.tabla-asignaciones tbody tr:nth-child(odd) {
+  background-color: color-mix(in srgb, var(--intranet-content-bg) 96%, #eee); /* Rayado */
+}
+.tabla-asignaciones tbody tr:hover {
+  background-color: color-mix(in srgb, var(--intranet-accent) 10%, var(--intranet-content-bg)); /* Hover sutil */
+}
+.btn-accion-tabla { /* Estilo para el botón/enlace en la tabla */
+  display: inline-block;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.8rem;
+  background-color: var(--intranet-accent);
+  color: var(--intranet-btn-primary-text); /* Asumiendo texto blanco/oscuro según variable */
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+.btn-accion-tabla:hover {
+   background-color: var(--intranet-btn-primary-hover-bg);
+   color: var(--intranet-btn-primary-text);
+   text-decoration: none;
+}
+
+/* Modo Oscuro */
+body.modo-oscuro .tabla-asignaciones th,
+body.modo-oscuro .tabla-asignaciones td {
+  border-color: var(--intranet-border-color);
+}
+body.modo-oscuro .tabla-asignaciones th {
+   background-color: color-mix(in srgb, var(--intranet-content-bg) 90%, #555);
+   color: var(--intranet-heading-color);
+}
+body.modo-oscuro .tabla-asignaciones tbody tr:nth-child(odd) {
+    background-color: color-mix(in srgb, var(--intranet-content-bg) 96%, #333);
+}
+body.modo-oscuro .tabla-asignaciones tbody tr:hover {
+    background-color: color-mix(in srgb, var(--intranet-accent) 10%, var(--intranet-content-bg));
+}
+ body.modo-oscuro .btn-accion-tabla {
+    background-color: var(--intranet-accent);
+    color: var(--intranet-btn-primary-text);
+ }
+  body.modo-oscuro .btn-accion-tabla:hover {
+     background-color: var(--intranet-btn-primary-hover-bg);
+     color: var(--intranet-btn-primary-text);
+  }
+
+
+  /* =============================================== */
+/* === ESTILOS PARA FORMULARIO CREAR TAREA     === */
+/* =============================================== */
+
+/* Contenedor del formulario */
+.create-assignment-container {
+  margin-top: 2rem; /* Espacio arriba */
+  padding-top: 1.5rem; /* Espacio sobre el título */
+  border-top: 1px solid var(--intranet-border-color); /* Línea separadora */
+  transition: border-color 0.3s ease;
+}
+
+.create-assignment-container h4 {
+  margin-top: 0;
+  margin-bottom: 1.5rem; /* Espacio debajo del título */
+  color: var(--intranet-heading-color);
+  font-weight: 600;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+.create-assignment-container h4 i {
+  margin-right: 0.5rem;
+}
+
+
+
+#create-assignment-form .form-group {
+  margin-bottom: 1.2rem; /* Espacio entre grupos de campos */
+}
+
+#create-assignment-form label {
+  display: block;
+  margin-bottom: 0.4rem; /* Espacio entre label e input */
+  font-weight: 500; /* Un poco menos grueso que en perfil */
+  font-size: 0.9rem;
+  color: var(--intranet-text-color);
+  transition: color 0.3s ease;
+}
+
+/* Estilo para todos los inputs y textarea dentro de este form */
+#create-assignment-form input[type="text"],
+#create-assignment-form input[type="datetime-local"],
+#create-assignment-form input[type="number"],
+#create-assignment-form textarea {
+  width: 100%;
+  padding: 0.6rem 0.8rem; /* Padding interno */
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--intranet-input-text);
+  background-color: var(--intranet-input-bg);
+  border: 1px solid var(--intranet-input-border);
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.2s ease;
+}
+
+#create-assignment-form textarea {
+  min-height: 80px; /* Altura mínima para textarea */
+  resize: vertical; /* Permitir redimensionar verticalmente */
+}
+
+/* Estilo focus para inputs */
+#create-assignment-form input:focus,
+#create-assignment-form textarea:focus {
+  border-color: var(--intranet-input-focus-border);
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--intranet-accent) 20%, transparent); /* Sombra focus sutil */
+}
+
+/* Contenedor opcional para poner fecha y puntos en línea */
+.form-row-flex {
+  display: flex;
+  flex-wrap: wrap; /* Para que pasen abajo en pantallas pequeñas */
+  gap: 1.5rem; /* Espacio entre los campos */
+}
+.form-row-flex .form-group-half {
+  flex: 1; /* Ocupan espacio equitativamente */
+  min-width: 200px; /* Ancho mínimo antes de envolver */
+}
+
+/* Botón de envío */
+#create-assignment-form .btn-submit {
+  display: inline-block; /* O block si quieres ancho completo */
+  width: auto; /* O 100% si es block */
+  padding: 0.7rem 1.5rem; /* Padding botón */
+  font-size: 1rem;
+  font-weight: 500;
+  background-color: var(--intranet-btn-primary-bg);
+  color: var(--intranet-btn-primary-text);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease;
+  margin-top: 0.5rem; /* Espacio sobre el botón */
+}
+#create-assignment-form .btn-submit:hover {
+  background-color: var(--intranet-btn-primary-hover-bg);
+  transform: translateY(-1px);
+}
+
+
+/* --- MODO OSCURO PARA FORMULARIO CREAR TAREA --- */
+
+body.modo-oscuro .create-assignment-container {
+   border-top-color: var(--intranet-border-color);
+}
+body.modo-oscuro .create-assignment-container h4 {
+   color: var(--intranet-heading-color);
+}
+body.modo-oscuro #create-assignment-form label {
+   color: var(--intranet-text-color);
+}
+body.modo-oscuro #create-assignment-form input[type="text"],
+body.modo-oscuro #create-assignment-form input[type="datetime-local"],
+body.modo-oscuro #create-assignment-form input[type="number"],
+body.modo-oscuro #create-assignment-form textarea {
+  color: var(--intranet-input-text);
+  background-color: var(--intranet-input-bg);
+  border: 1px solid var(--intranet-input-border);
+}
+body.modo-oscuro #create-assignment-form input:focus,
+body.modo-oscuro #create-assignment-form textarea:focus {
+   border-color: var(--intranet-input-focus-border);
+   box-shadow: 0 0 0 3px color-mix(in srgb, var(--intranet-accent) 20%, transparent);
+}
+body.modo-oscuro #create-assignment-form .btn-submit {
+   background-color: var(--intranet-btn-primary-bg); /* Usará variable amarilla */
+   color: var(--intranet-btn-primary-text); /* Usará variable texto oscuro */
+}
+body.modo-oscuro #create-assignment-form .btn-submit:hover {
+   background-color: var(--intranet-btn-primary-hover-bg);
+}
+.custom-toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: var(--intranet-success-bg); /* Usa tus variables */
+    color: var(--intranet-success-text);
+    padding: 15px 20px;
+    border-radius: 5px;
+    border: 1px solid var(--intranet-success-border);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index: 1100;
+    opacity: 0; /* Oculto por defecto */
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    max-width: 300px;
+}
+.custom-toast.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+
+/* Estilos comunes para formularios */
+.form-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--intranet-content-bg);
+  border: 1px solid var(--intranet-border-color);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px var(--intranet-shadow-color);
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-container h1 {
+  color: var(--intranet-heading-color);
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+.form-container .form-group {
+  margin-bottom: 1.2rem;
+}
+
+.form-container label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+  color: var(--intranet-text-color);
+  transition: color 0.3s ease;
+}
+
+.form-container input[type="text"],
+.form-container input[type="datetime-local"],
+.form-container input[type="number"],
+.form-container textarea,
+.form-container select {
+  width: 100%;
+  padding: 0.7rem 0.8rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--intranet-input-text);
+  background-color: var(--intranet-input-bg);
+  border: 1px solid var(--intranet-input-border);
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.2s ease;
+}
+
+.form-container textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form-container input:focus,
+.form-container textarea:focus,
+.form-container select:focus {
+  border-color: var(--intranet-input-focus-border);
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--intranet-accent) 20%, transparent);
+}
+
+.form-container .form-row-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.form-container .form-group-half {
+  flex: 1;
+  min-width: 200px;
+}
+
+.form-container .btn-submit {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  background-color: var(--intranet-btn-primary-bg);
+  color: var(--intranet-btn-primary-text);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease;
+  margin-top: 1rem;
+}
+
+.form-container .btn-submit:hover {
+  background-color: var(--intranet-btn-primary-hover-bg);
+  transform: translateY(-1px);
+}
+
+.form-container .mensaje-error {
+  color: var(--intranet-error-text);
+  background-color: var(--intranet-error-bg);
+  border: 1px solid var(--intranet-error-border);
+  padding: 0.8rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.form-container .context-info {
+  color: var(--intranet-text-color);
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.form-container .back-link {
+  margin-bottom: 1rem;
+}
+
+.form-container .back-link a {
+  color: var(--intranet-accent);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.form-container .back-link a:hover {
+  text-decoration: underline;
+}
+
+/* Estilos específicos para la página ver_curso.php */
+.lesson-section {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  border: 1px solid var(--intranet-border-color);
+  border-radius: 6px;
+  background-color: var(--intranet-content-bg);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.lesson-section h4 {
+  color: var(--intranet-heading-color);
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+
+.lesson-section p {
+  color: var(--intranet-text-color);
+  margin-bottom: 1rem;
+}
+
+.task-list {
+  list-style: none;
+  padding: 0;
+}
+
+.task-item {
+  padding: 1rem;
+  margin-bottom: 0.8rem;
+  border: 1px solid var(--intranet-border-color);
+  border-radius: 4px;
+  background-color: color-mix(in srgb, var(--intranet-content-bg) 98%, transparent);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.task-item strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--intranet-heading-color);
+}
+
+.task-item small {
+  display: block;
+  color: var(--intranet-text-color);
+  font-size: 0.85rem;
+  margin-top: 0.3rem;
+  opacity: 0.8;
+}
+
+.submission-form {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--intranet-border-color);
+  transition: border-color 0.3s ease;
+}
+
+.submission-form .form-group {
+  margin-bottom: 0.8rem;
+}
+
+.submission-form label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--intranet-text-color);
+}
+
+.submission-form input[type="file"],
+.submission-form textarea {
+  width: 100%;
+  padding: 0.6rem 0.7rem;
+  font-size: 0.9rem;
+  border: 1px solid var(--intranet-input-border);
+  border-radius: 4px;
+  background-color: var(--intranet-input-bg);
+  color: var(--intranet-input-text);
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.submission-form .btn-submit {
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+}
+
+.tutor-actions {
+  margin-top: 1rem;
+}
+
+.tutor-actions a.btn-accion-tabla,
+.tutor-actions button.btn-danger.btn-sm {
+  display: inline-block;
+  margin-right: 0.5rem;
+  margin-bottom: 0.3rem;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.tutor-actions a.btn-accion-tabla {
+  background-color: var(--intranet-accent);
+  color: var(--intranet-btn-primary-text);
+}
+
+.tutor-actions a.btn-accion-tabla:hover {
+  background-color: var(--intranet-btn-primary-hover-bg);
+}
+
+.tutor-actions button.btn-danger.btn-sm {
+  background-color: var(--intranet-logout-btn-bg);
+  color: var(--intranet-logout-btn-text);
+  border: none;
+  cursor: pointer;
+}
+
+.tutor-actions button.btn-danger.btn-sm:hover {
+  background-color: var(--intranet-logout-btn-hover-bg);
+}
+
+/* Estilos para modo oscuro en ver_curso.php */
+body.modo-oscuro .lesson-section {
+  background-color: var(--intranet-content-bg);
+  border-color: var(--intranet-border-color);
+}
+
+body.modo-oscuro .lesson-section h4 {
+  color: var(--intranet-heading-color);
+}
+
+body.modo-oscuro .lesson-section p {
+  color: var(--intranet-text-color);
+}
+
+body.modo-oscuro .task-item {
+  border-color: var(--intranet-border-color);
+  background-color: color-mix(in srgb, var(--intranet-content-bg) 95%, transparent);
+}
+
+body.modo-oscuro .task-item strong {
+  color: var(--intranet-heading-color);
+}
+
+body.modo-oscuro .task-item small {
+  color: var(--intranet-text-color);
+}
+
+body.modo-oscuro .submission-form {
+  border-top-color: var(--intranet-border-color);
+}
+
+/* Estilos específicos para la página crear_tarea.php (ya incluidos en .form-container) */
+
+/* Estilos para modo oscuro en crear_tarea.php */
+body.modo-oscuro .form-container {
+  background-color: var(--intranet-content-bg);
+  border-color: var(--intranet-border-color);
+}
+
+body.modo-oscuro .form-container h1 {
+  color: var(--intranet-heading-color);
+}
+
+body.modo-oscuro .form-container label {
+  color: var(--intranet-text-color);
+}
+
+body.modo-oscuro .form-container input[type="text"],
+body.modo-oscuro .form-container input[type="datetime-local"],
+body.modo-oscuro .form-container input[type="number"],
+body.modo-oscuro .form-container textarea,
+body.modo-oscuro .form-container select {
+  color: var(--intranet-input-text);
+  background-color: var(--intranet-input-bg);
+  border-color: var(--intranet-input-border);
+}
+
+body.modo-oscuro .form-container input:focus,
+body.modo-oscuro .form-container textarea:focus,
+body.modo-oscuro .form-container select:focus {
+  border-color: var(--intranet-input-focus-border);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--intranet-accent) 20%, transparent);
+}
+
+body.modo-oscuro .form-container .context-info {
+  color: var(--intranet-text-color);
+}
+
+body.modo-oscuro .form-container .back-link a {
+  color: var(--intranet-accent);
+}
+
+/* Estilos específicos para ver_curso.php */
+.ver-curso-container {
+  width: 100%;
+  background-color: var(--intranet-content-bg);
+  border: 1px solid var(--intranet-border-color);
+  box-shadow: 0 2px 4px var(--intranet-shadow-color);
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ver-curso-container h1 {
+  color: var(--intranet-heading-color);
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.ver-curso-container .back-link {
+  margin: 1rem;
+}
+
+.ver-curso-container .back-link a {
+  color: var(--intranet-accent);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.ver-curso-container .back-link a:hover {
+  text-decoration: underline;
+}
+
+.ver-curso-container .mensaje-info {
+  width: 90%;
+  margin-left: auto; /* Centrar horizontalmente */
+  margin-right: auto;
+  color: var(--intranet-text-color);
+  background-color: #e3f2fd; /* Un azul claro */
+  border: 1px solid #bbdefb;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.ver-curso-container .mensaje-error {
+  color: var(--intranet-error-text);
+  background-color: var(--intranet-error-bg);
+  border: 1px solid var(--intranet-error-border);
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.ver-curso-container .course-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.ver-curso-container .course-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.ver-curso-container .course-header p {
+  color: var(--intranet-text-color);
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.ver-curso-container .course-meta-details {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  font-size: 0.9rem;
+  color: #6c757d; /* Un gris más suave */
+  margin-top: 1rem;
+}
+
+.ver-curso-container .course-meta-details span {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.ver-curso-container .course-meta-details i {
+  font-size: 1rem;
+}
+
+.ver-curso-container .lessons-assignments-container h2 {
+  color: var(--intranet-heading-color);
+  margin:2rem;
+  margin-left: 5rem;
+  font-size: 1.8rem;
+}
+
+.ver-curso-container .lesson-block {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  border: 1px solid var(--intranet-border-color);
+  border-radius: 6px;
+  background-color: var(--intranet-content-bg);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.ver-curso-container .lesson-header h4 {
+  color: var(--intranet-heading-color);
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+
+.ver-curso-container .lesson-content p {
+  color: var(--intranet-text-color);
+  line-height: 1.7;
+}
+
+.ver-curso-container .assignment-details-inline {
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--intranet-border-color);
+  border-radius: 4px;
+  background-color: color-mix(in srgb, var(--intranet-content-bg) 98%, transparent);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.ver-curso-container .assignment-details-inline h5 {
+  color: var(--intranet-heading-color);
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ver-curso-container .assignment-details-inline h5 i {
+  font-size: 1rem;
+}
+
+.ver-curso-container .assignment-details-inline p {
+  color: var(--intranet-text-color);
+  margin-bottom: 0.8rem;
+  line-height: 1.6;
+}
+
+.ver-curso-container .assignment-meta-inline {
+  font-size: 0.9rem;
+  color: #6c757d;
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.ver-curso-container .assignment-meta-inline span {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.ver-curso-container .assignment-actions-inline {
+  margin-top: 1rem;
+}
+
+.ver-curso-container .btn-accion,
+.ver-curso-container .btn-add-assignment {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.ver-curso-container .btn-accion {
+  background-color: var(--intranet-accent);
+  color: var(--intranet-btn-primary-text);
+}
+
+.ver-curso-container .btn-accion:hover {
+  background-color: var(--intranet-btn-primary-hover-bg);
+}
+
+.ver-curso-container .btn-add-assignment {
+  background-color: var(--intranet-sidebar-link-active-bg);
+  color: var(--intranet-btn-primary-text);
+}
+
+.ver-curso-container .btn-add-assignment:hover {
+  background-color: var(--intranet-sidebar-link-active-bg);;
+}
+
+.ver-curso-container .status-entregado {
+  color: #155724;
+  background-color: #d4edda;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.ver-curso-container .status-pendiente {
+  color: #85640a;
+  background-color: #fff3cd;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+/* Estilos para modo oscuro en ver_curso.php */
+body.modo-oscuro .ver-curso-container {
+  background-color: var(--intranet-content-bg);
+  border-color: var(--intranet-border-color);
+}
+
+body.modo-oscuro .ver-curso-container h1,
+body.modo-oscuro .ver-curso-container h2,
+body.modo-oscuro .ver-curso-container h4,
+body.modo-oscuro .ver-curso-container h5 {
+  color: var(--intranet-heading-color);
+}
+
+body.modo-oscuro .ver-curso-container p,
+body.modo-oscuro .ver-curso-container span {
+  color: var(--intranet-text-color);
+}
+
+body.modo-oscuro .ver-curso-container .mensaje-info {
+  background-color: #1c384a;
+  border-color: #112631;
+  color: #a7d1eb;
+}
+
+body.modo-oscuro .ver-curso-container .mensaje-error {
+  background-color: var(--intranet-error-bg);
+  border-color: var(--intranet-error-border);
+  color: var(--intranet-error-text);
+}
+
+body.modo-oscuro .ver-curso-container .lesson-block {
+  background-color: var(--intranet-content-bg);
+  border-color: var(--intranet-border-color);
+}
+
+body.modo-oscuro .ver-curso-container .assignment-details-inline {
+  background-color: color-mix(in srgb, var(--intranet-content-bg) 95%, transparent);
+  border-color: var(--intranet-border-color);
+}
+body.modo-oscuro .btn-add-assignment{
+  background-color: var(--intranet-sidebar-link-active-bg);
+  color: var(--intranet-btn-primary-text);
+}
+
+/* Estilos específicos para ver_curso.php */
+/* Estilos específicos para ver_curso.php */
+.ver-curso-container .lesson-block {
+  width: 90%; /* Establecer el ancho al 80% */
+  margin-left: auto; /* Centrar horizontalmente */
+  margin-right: auto; /* Centrar horizontalmente */
+}
+
+
+/* En intranet.css - Estilos para la tabla de notas del alumno */
+.tabla-notas {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  /* ... (similar a .tabla-asignaciones: th, td, hover, etc.) ... */
+}
+.tabla-notas th,
+.tabla-notas td {
+  border: 1px solid var(--intranet-border-color);
+  padding: 0.6rem 0.8rem; /* Un poco menos de padding */
+  text-align: left;
+  vertical-align: middle;
+}
+.tabla-notas th {
+  background-color: color-mix(in srgb, var(--intranet-content-bg) 90%, #888);
+  font-weight: 600;
+  color: var(--intranet-heading-color);
+}
+.tabla-notas tbody tr:nth-child(odd) {
+  background-color: color-mix(in srgb, var(--intranet-content-bg) 96%, #eee);
+}
+.tabla-notas tbody tr:hover {
+  background-color: color-mix(in srgb, var(--intranet-accent) 10%, var(--intranet-content-bg));
+}
+
+/* Modo Oscuro para tabla-notas */
+body.modo-oscuro .tabla-notas th,
+body.modo-oscuro .tabla-notas td {
+  border-color: var(--intranet-border-color);
+}
+body.modo-oscuro .tabla-notas th {
+   background-color: color-mix(in srgb, var(--intranet-content-bg) 90%, #555);
+   color: var(--intranet-heading-color);
+}
+body.modo-oscuro .tabla-notas tbody tr:nth-child(odd) {
+    background-color: color-mix(in srgb, var(--intranet-content-bg) 96%, #333);
+}
+body.modo-oscuro .tabla-notas tbody tr:hover {
+    background-color: color-mix(in srgb, var(--intranet-accent) 10%, var(--intranet-content-bg));
+}
+
+/* En intranet.css */
+.clase-con-estudiantes-item {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background-color: var(--intranet-content-bg); /* O un color ligeramente diferente */
+  border: 1px solid var(--intranet-border-color);
+  border-radius: 5px;
+}
+.clase-con-estudiantes-item h4 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  font-size: 1.2rem;
+  color: var(--intranet-heading-color);
+}
+.clase-con-estudiantes-item h4 small {
+  font-size: 0.85em;
+  font-weight: normal;
+}
+ul.lista-estudiantes {
+  list-style: disc; /* O none si prefieres */
+  padding-left: 20px;
+  margin-bottom: 0;
+  font-size: 0.9rem;
+}
+ul.lista-estudiantes li {
+  padding: 0.25rem 0;
+  color: var(--intranet-text-color);
+}
+.mensaje-info-inline { /* Para mensajes dentro de un item */
+  font-size: 0.85em;
+  color: #6c757d; /* Un gris */
+  margin-top: 0.5rem;
+}
+hr.separador-clase {
+  margin: 2rem 0;
+  border: 0;
+  border-top: 1px solid var(--intranet-border-color);
+  opacity: 0.5;
+}
+
+/* En intranet.css - Estilos para tabla de calificaciones del tutor */
+.tabla-calificaciones {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  font-size: 0.85rem; /* Un poco más pequeño */
+}
+.tabla-calificaciones th,
+.tabla-calificaciones td {
+  border: 1px solid var(--intranet-border-color);
+  padding: 0.5rem 0.7rem;
+  text-align: left;
+  vertical-align: middle;
+}
+.tabla-calificaciones th {
+  background-color: color-mix(in srgb, var(--intranet-content-bg) 85%, #888);
+  font-weight: 600;
+  color: var(--intranet-heading-color);
+  white-space: nowrap; /* Evitar que títulos de tarea se rompan mucho */
+}
+.tabla-calificaciones td {
+  text-align: center; /* Centrar notas */
+}
+/* =============================================== */
+/* === ESTILOS PARA SELECTOR DE CLASE (TUTOR)  === */
+/* =============================================== */
+
+/* Estilo para el <select> específico en el libro de calificaciones */
+#selected_class_id_tutor {
+  display: block; /* Ocupa el ancho disponible si su contenedor lo permite */
+  width: 100%;    /* O un ancho específico, ej. 300px, o max-width */
+  max-width: 450px; /* Evita que sea demasiado ancho */
+  padding: 0.6rem 0.8rem;
+  font-size: 0.95rem;
+  font-family: var(--font-family-base, "Poppins", sans-serif); /* Hereda fuente o usa Poppins */
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--intranet-input-text);
+  background-color: var(--intranet-input-bg);
+  background-clip: padding-box; /* Estándar de Bootstrap */
+  border: 1px solid var(--intranet-input-border);
+  border-radius: 0.375rem; /* Radio de Bootstrap, o el tuyo (ej. 4px) */
+  appearance: none; /* Quitar apariencia nativa para poder estilizar flecha */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out, background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+
+  /* Flecha personalizada (SVG simple) */
+  padding-right: 2.5rem;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 16px 12px;
+}
+
+#selected_class_id_tutor:focus {
+  border-color: var(--intranet-input-focus-border);
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem color-mix(in srgb, var(--intranet-accent) 25%, transparent);
+}
+
+/* Estilo para la etiqueta del select, si la tienes fuera o quieres generalizar */
+.form-group label[for="selected_class_id_tutor"] {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--intranet-text-color);
+}
+
+
+/* --- MODO OSCURO PARA SELECTOR DE CLASE --- */
+body.modo-oscuro #selected_class_id_tutor {
+  color: var(--intranet-input-text);
+  background-color: var(--intranet-input-bg);
+  border-color: var(--intranet-input-border);
+  /* Flecha personalizada para modo oscuro (SVG con color de trazo diferente) */
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23adb5bd' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+}
+
+body.modo-oscuro #selected_class_id_tutor:focus {
+  border-color: var(--intranet-input-focus-border);
+  box-shadow: 0 0 0 0.25rem color-mix(in srgb, var(--intranet-accent) 25%, transparent);
+}
+
+body.modo-oscuro .form-group label[for="selected_class_id_tutor"] {
+  color: var(--intranet-text-color);
+}
+
+/* En intranet.css */
+.chat-container h2 i { margin-right: 0.5rem; }
+.chat-messages-list {
+    height: 400px; /* Altura fija con scroll */
+    overflow-y: auto; /* Scroll vertical */
+    border: 1px solid var(--intranet-border-color);
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--intranet-page-bg); /* Fondo ligeramente diferente */
+}
+.chat-message {
+    padding: 0.5rem 0.8rem;
+    margin-bottom: 0.75rem;
+    border-radius: 8px;
+    max-width: 80%; /* Mensajes no ocupan todo el ancho */
+    word-wrap: break-word; /* Romper palabras largas */
+    line-height: 1.4;
+}
+.other-user-message { /* Mensajes de otros */
+    background-color: #e9ecef; /* Gris claro */
+    color: #333;
+    margin-right: auto; /* Alinea a la izquierda */
+    border-bottom-left-radius: 0;
+}
+.current-user-message { /* Mensajes del usuario actual */
+    background-color: var(--intranet-accent); /* Color de acento */
+    color: var(--intranet-btn-primary-text); /* Texto del botón primario */
+    margin-left: auto; /* Alinea a la derecha */
+    border-bottom-right-radius: 0;
+}
+.message-sender {
+    font-weight: bold;
+    font-size: 0.8em;
+    display: block;
+    margin-bottom: 0.2em;
+    opacity: 0.9;
+}
+.message-time {
+    font-size: 0.7em;
+    float: right; /* Hora a la derecha */
+    opacity: 0.7;
+    margin-left: 0.5rem;
+}
+.message-text {
+    clear: both; /* Limpiar float */
+}
+
+.chat-input-form textarea {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid var(--intranet-input-border);
+    border-radius: 4px;
+    resize: vertical;
+    min-height: 60px;
+    margin-bottom: 0.5rem;
+}
+.chat-input-form button { /* Reusa tu clase .btn-submit o .curso-boton */
+    /* ... estilos ... */
+    float: right; /* Botón enviar a la derecha */
+}
+
+/* --- Modo Oscuro Chat --- */
+body.modo-oscuro .chat-messages-list { background-color: #222; border-color: var(--intranet-border-color); }
+body.modo-oscuro .other-user-message { background-color: #3a3a3a; color: #ccc; }
+body.modo-oscuro .current-user-message { background-color: var(--intranet-accent); color: var(--intranet-btn-primary-text); }
+body.modo-oscuro .message-sender { opacity: 1; }
+body.modo-oscuro .message-time { opacity: 0.6; }
+body.modo-oscuro .chat-input-form textarea { background-color: var(--intranet-input-bg); color: var(--intranet-input-text); border-color: var(--intranet-input-border); }
+
+/* En intranet.css - Estilos básicos para bandeja de entrada */
+ul.inbox-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+li.conversation-item {
+    border-bottom: 1px solid var(--intranet-border-color);
+    transition: background-color 0.2s ease;
+}
+li.conversation-item:last-child {
+    border-bottom: none;
+}
+li.conversation-item:hover {
+    background-color: color-mix(in srgb, var(--intranet-accent) 5%, var(--intranet-content-bg));
+}
+a.conversation-link {
+    display: block;
+    padding: 1rem 0.5rem;
+    text-decoration: none;
+    color: inherit; /* Hereda color de texto normal */
+}
+.convo-details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.3rem;
+}
+.convo-participants {
+    font-weight: 600;
+    color: var(--intranet-heading-color);
+}
+.convo-time {
+    font-size: 0.8em;
+    color: #6c757d; /* O usa variable --intranet-text-muted */
+}
+.last-message-snippet {
+    font-size: 0.9em;
+    color: var(--intranet-text-color);
+    opacity: 0.9;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Añade ... si el texto es muy largo */
+}
+
+/* Modo Oscuro */
+body.modo-oscuro li.conversation-item { border-color: var(--intranet-border-color); }
+body.modo-oscuro .convo-participants { color: var(--intranet-heading-color); }
+body.modo-oscuro .last-message-snippet { color: var(--intranet-text-color); }
+/* ... */

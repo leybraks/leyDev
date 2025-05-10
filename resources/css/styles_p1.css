@@ -1,0 +1,782 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+.circle {
+    transition: left 0.3s ease;
+}
+
+@media (min-width: 1200px) {
+    .circle {
+        transition: left 0.5s ease;
+    }
+}
+
+@media (min-width: 1800px) {
+    .circle {
+        transition: left 0.7s ease;
+    }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+input {
+  font-family: "Poppins", sans-serif;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.welcome h2, .welcome #t3{
+  color: #333;
+}
+  .cont {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden; 
+  }
+
+.circle::before {
+  content: "";
+  position: absolute;
+  height: 200vh;
+  width: 200vh;
+  top: -10%;
+  left: var(--circle-left, 48%);
+  transform: translateY(-50%);
+  background: linear-gradient(45deg, #4481eb 0%, #04befe 100%);
+  border-radius: 50%;
+  z-index: -1;
+}
+.page-content {
+  width: 100%;
+}
+.page-content .seccion1,.seccion2{
+  width: 100%;
+  height: 100vh;
+}
+.welcome {
+  height: 100vh;
+  color: #333;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 7%;
+  margin-left: 10%;
+  position: relative;
+}
+body,
+h1, h2, p, a,
+input,
+button,
+.page-content,
+.navbar, 
+.footer,
+.welcome,
+.seccion2,
+.seccion2-content,
+.info,
+.toggle label,
+.toggle label::after,
+.footer-socials li a i,
+.tech-icons i,
+.circle::before
+{
+    transition: background-color 0.3s ease,
+                color 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease,
+                left 0.3s ease;
+}
+
+#imgInicio1 {
+  transform: translateX(80px) translateY(-50%);
+  position: absolute;
+  top: 15%;
+  right: 0;
+  width: auto;
+  height: auto;
+  max-width: 50%;
+}
+
+.page-content .seccion1, .page-content .seccion2 {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+h1 {
+  font-weight: 600;
+  font-size: clamp(1rem, 4.775rem + 4vw, 9rem);
+  display: flex;
+}
+.t2{
+  color: #3498db;
+}
+
+.tech-icons i {
+  margin-right: 4%;
+  transition: transform 0.2s ease;
+  font-size: clamp(2rem, 2.65rem + 4vw, 8rem);
+  opacity: 0;
+  transform: scale(0.5);
+  display: inline-block;
+  transition: opacity 0.4s ease-out, transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+
+.page-content .seccion2 {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  padding: 4rem;
+  padding-left: 0;
+  overflow: hidden;
+}
+
+
+#imgInicio2 {
+  flex-basis: 60%;
+  max-width: 50%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+
+.seccion2-content {
+  flex-basis: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+
+.seccion2 .info {
+  width: 100%;
+  margin-bottom: 2rem;
+  text-align: right;
+}
+
+.seccion2 .info h2 {
+  text-align: left;
+  font-size: clamp(1.5rem, 1.2rem + 1.5vw, 2.5rem);
+  color: #333;
+  margin: 0;
+}
+
+
+.seccion2 .tech-icons {
+  margin-top: 0;
+  width: 100%;
+  text-align: left;
+}
+
+
+.seccion2 .tech-icons i {
+  margin-right: 7%;
+  margin-left: 0;
+  display: inline-block;
+ 
+}
+
+
+.seccion2 .fa-html5 { color: #e34f26; rotate: -10deg; }
+.seccion2 .fa-css3-alt { color: #1572b6; rotate: 10deg; }
+.seccion2 .fa-js { color: #f7df1e; rotate: -10deg; }
+.seccion2 .fa-php { color: #777bb4; rotate: 10deg; }
+
+
+.tech-icons{
+  flex-wrap: wrap;
+  margin-top: 10%;
+}
+
+
+.fa-html5 {
+  color: #e34f26;
+  rotate: -10deg;
+}
+.fa-css3-alt {
+  color: #1572b6;
+  rotate: 10deg;
+}
+.fa-js {
+  color: #f7df1e;
+  rotate: -10deg;
+}
+.fa-php {
+  color: #777bb4;
+  rotate: 10deg;
+}
+
+
+
+.tech-icons.icons-visible i {
+  opacity: 1;
+  transform: scale(1);
+}
+.toggle {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  width: 70px;
+  height: 40px;
+  z-index: 1000;
+  }
+
+  .toggle input[type="checkbox"] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  opacity: 0;
+  z-index: 2;
+  }
+
+  .toggle label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  border: 2px solid #ddd;
+  border-radius: 20px;
+  box-shadow: inset -30px 0 0 #3498db;
+  transition: box-shadow 0.3s ease;
+  position: relative;
+  z-index: 1;
+  }
+
+  .toggle label::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 8px;
+  left: 10px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: inset -8px -5px #333;
+  transition: all 0.3s ease;
+  }
+
+  .toggle input[type="checkbox"]:checked + label {
+  box-shadow: inset 30px 0 0 #ffeb00;
+  }
+
+  .toggle input[type="checkbox"]:checked + label::after {
+  left: 39px;
+  background: #ffbc00;
+  box-shadow: inset 0 0 0 2px #fff;
+  border: 2px dashed #fff;
+  }
+
+  body.modo-oscuro {
+  background: #121212;
+  }
+
+
+  :root {
+    --nav-full-bg: rgba(255, 255, 255);
+    --nav-full-link: #333;
+    --nav-full-link-hover-bg: #eee;
+    --nav-scroll-bg: #fff;
+    --nav-scroll-icon: #333;
+    --nav-scroll-hover-bg: #f0f0f0;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --modal-link-color: #333;
+    --modal-link-hover-bg: #eee;
+    --modal-close-icon: #888;
+    --modal-close-icon-hover: #333;
+    --footer-bg: #333;
+    --footer-text: white;
+    --footer-border: #ddd;
+    --accent-color: #3498db;
+    --bg-color: initial; 
+    --panel-bg: initial;
+    --form-bg: initial;
+    --input-bg: #f0f0f0; 
+    --input-text: #333;
+    --text-color: #333;
+    --accent: #3498db; 
+    --btn-hover: #2980b9;
+    --overlay-gradient: linear-gradient(-45deg, #4481eb 0%, #04befe 100%);
+ }
+
+ body.modo-oscuro {
+    --nav-full-bg: #121212;
+    --nav-full-link: #eee;
+    --nav-full-link-hover-bg: #444;
+    --nav-scroll-bg: #333;
+    --nav-scroll-icon: #eee;
+    --nav-scroll-hover-bg: #555;
+    --shadow-color: rgba(255, 255, 255, 0.1);
+    --modal-link-color: #eee;
+    --modal-link-hover-bg: #444;
+    --modal-close-icon: #aaa;
+    --modal-close-icon-hover: #eee;
+    --footer-bg: #1e1e1e; 
+    --footer-text: #ccc; 
+    --footer-border: #333; 
+    --accent-color: #ffeb00; 
+    --bg-color: #121212;
+    --panel-bg: #1f1f1f;
+    --form-bg: #1a1a1a;
+    --input-bg: #2a2a2a;
+    --input-text: #ddd;
+    --text-color: #eee;
+    --accent: #ffeb00;
+    --btn-hover: #fff6a7;
+    --overlay-gradient: linear-gradient(-45deg, #cebe0d 0%, #ffeb00 100%);
+ }
+
+ .full-navbar {
+     position: fixed; top: 0; right: 0;
+     width: 53%;
+     background-color: var(--nav-full-bg);
+     backdrop-filter: blur(10px); padding: 1rem; z-index: 999;
+     opacity: 1; transform: translateY(0); visibility: visible;
+     transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+ }
+ .full-navbar ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 0.5rem; justify-content: center; }
+ .full-navbar li a { color: var(--nav-full-link); text-decoration: none; padding: 0.7rem 1rem; border-radius: 8px; display: flex; align-items: center; gap: 0.5rem; transition: background-color 0.3s ease, color 0.3s ease; }
+ .full-navbar li a:hover { background-color: var(--nav-full-link-hover-bg); }
+ .full-navbar li a i { font-size: 1rem; }
+
+ .scroll-navbar {
+     position: fixed; top: 2vh; right: 2vh;
+     width: 55px; height: 55px;
+     background-color: var(--nav-scroll-bg);
+     box-shadow: 0 2px 5px var(--shadow-color);
+     z-index: 1000;
+     display: flex; align-items: center; justify-content: center;
+     border-radius: 50%; cursor: pointer; text-decoration: none;
+     color: var(--nav-scroll-icon); font-size: 1.4rem;
+     opacity: 0; visibility: hidden; pointer-events: none;
+     transform: scale(0.7) translateY(-10px);
+     transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease, background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+ }
+
+ .scroll-navbar:hover {
+     transform: scale(0.75) translateY(-10px);
+ }
+
+ .modal {
+     position: fixed; top: 10vh; right: 2vh;
+     width: 280px; max-width: 80vw;
+     background-color: var(--nav-scroll-bg);
+     border-radius: 12px;
+     box-shadow: 0 6px 20px var(--shadow-color);
+     padding: 1.5rem; padding-top: 3rem;
+     z-index: 1001;
+     opacity: 0; visibility: hidden; pointer-events: none;
+     transform: translateY(-15px) scale(0.95);
+     transform-origin: top right;
+     transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease, background-color 0.3s ease;
+ }
+
+ .modal.is-visible {
+     opacity: 1; visibility: visible;
+     transform: translateY(0) scale(1);
+     pointer-events: auto;
+ }
+
+ .modal__close {
+     position: fixed; top: 0.7rem; right: 0.8rem; 
+     background: none; border: none;
+     font-size: 2rem; line-height: 1;
+     color: var(--modal-close-icon);
+     cursor: pointer; padding: 0.2rem;
+     transition: color 0.2s ease;
+     z-index: 1002;
+ }
+ .modal__close:hover { color: var(--modal-close-icon-hover); }
+
+ #modal ul { list-style: none; padding: 0; margin: 0; }
+ #modal li { margin-bottom: 0.5rem; }
+ #modal li:last-child { margin-bottom: 0; }
+ #modal li a {
+     color: var(--modal-link-color);
+     text-decoration: none;
+     display: block;
+     padding: 0.8rem 1rem;
+     border-radius: 8px;
+     display: flex;
+     align-items: center;
+     gap: 0.8rem;
+     transition: background-color 0.2s ease, color 0.2s ease;
+ }
+ #modal li a:hover { background-color: var(--modal-link-hover-bg); }
+ #modal li a i { width: 20px; text-align: center; font-size: 1.1rem; }
+
+
+ .modal-overlay {
+     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+     background-color: rgba(0, 0, 0, 0.4); z-index: 1000;
+     opacity: 0; visibility: hidden; pointer-events: none;
+     transition: opacity 0.3s ease, visibility 0.3s ease;
+ }
+
+ .modal-overlay.is-visible {
+     opacity: 1; visibility: visible; pointer-events: auto;
+ }
+
+
+ body.scrolled .full-navbar {
+     opacity: 0; transform: translateY(-100%);
+     visibility: hidden; pointer-events: none;
+ }
+
+ body.scrolled .scroll-navbar {
+     opacity: 1; transform: scale(1) translateY(0);
+     visibility: visible; pointer-events: auto;
+ }
+
+ body.scrolled .scroll-navbar:hover {
+     transform: scale(1.1);
+     background-color: var(--nav-scroll-hover-bg);
+ }
+ body.scrolled .scroll-navbar:active { transform: scale(0.95); }
+ body.scrolled .scroll-navbar:focus-visible {
+     outline: 2px solid var(--nav-scroll-bg);
+     outline-offset: 3px;
+     box-shadow: 0 0 0 4px var(--nav-scroll-hover-bg);
+ }
+
+ .footer {
+  position: relative;
+    z-index: 10;
+    padding: 2rem 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--footer-text);
+    background-color: var(--footer-bg);
+    border-top: 1px solid var(--footer-border);
+    }
+
+    .footer-info p {
+    margin: 0.3rem 0;
+    opacity: 0.8;
+    }
+
+    .footer-socials {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    gap: 1rem;
+    padding: 0;
+    }
+
+    .footer-socials li a {
+    color: var(--footer-text);
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+    }
+
+    .footer-socials li a:hover {
+    color: var(--accent-color);
+    }
+
+body.modo-oscuro .container {
+  background-color: var(--bg-color);
+}
+body.modo-oscuro .container:before {
+  background-image: var(--overlay-gradient);
+}
+body.modo-oscuro .forms-container {
+  background: none;
+}
+body.modo-oscuro .signin-signup {
+  color: var(--text-color);
+}
+body.modo-oscuro .title { 
+  color: var(--heading-color); 
+}
+body.modo-oscuro .input-field {
+  background-color: var(--input-bg);
+}
+body.modo-oscuro .input-field i {
+  color: #888;
+}
+body.modo-oscuro .input-field input {
+  color: var(--input-text);
+}
+body.modo-oscuro .input-field input::placeholder {
+  color: #aaa;
+}
+body.modo-oscuro .social-media .social-icon {
+  border-color: #555;
+  color: #ccc;
+}
+body.modo-oscuro .social-icon:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+body.modo-oscuro .btn {
+  background-color: var(--accent);
+  color: #333;
+}
+body.modo-oscuro .btn:hover {
+  background-color: var(--btn-hover);
+}
+body.modo-oscuro .btn.transparent {
+  border-color: #ddd;
+  color: #ddd;
+  background: none; 
+}
+body.modo-oscuro .panels-container .panel {
+  background: none;
+}
+body.modo-oscuro .panel .content,
+body.modo-oscuro .panel h3,
+body.modo-oscuro .panel p {
+  color: var(--text-color); 
+}
+
+body.modo-oscuro #sign-up-btn,
+body.modo-oscuro #sign-in-btn {
+  background: none;
+  border: 2px solid #ddd;
+  color: #ddd;
+}
+body.modo-oscuro #sign-up-btn:hover,
+body.modo-oscuro #sign-in-btn:hover {
+  background: var(--accent); 
+  color: #333;
+  border-color: var(--accent);
+}
+
+
+
+body.modo-oscuro .circle::before{
+  background-image: linear-gradient(45deg, #cebe0d 0%, #ffeb00 100%);
+}
+body.modo-oscuro .t1{
+  color: white;
+}
+body.modo-oscuro #t3{
+  color: white;
+}
+body.modo-oscuro .welcome h2{
+  color: white;
+}
+body.modo-oscuro .t2{
+  color: #ffeb00;
+}
+body.modo-oscuro .seccion2 .info h2{
+  color: white;
+}
+
+/* --- ESTILOS RESPONSIVOS --- */
+
+/* Buena práctica general para imágenes */
+img {
+  max-width: 100%; /* Asegura que las imágenes no se desborden de su contenedor */
+  height: auto;    /* Mantiene la proporción de la imagen */
+}
+
+/* === Pantallas Medianas (Tabletas, etc.) - Ej: Menos de 992px === */
+@media (max-width: 991.98px) {
+
+  .full-navbar {
+      /* Ocultar la barra de navegación completa en pantallas medianas/pequeñas */
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(-100%);
+  }
+
+  .scroll-navbar {
+      /* Asegurar que el botón flotante sea visible siempre en estas pantallas */
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: scale(1) translateY(0);
+  }
+
+  .welcome {
+      margin-left: 5%; /* Reducir margen lateral */
+      margin-right: 5%;
+      font-size: 1.8rem; /* Ajustar tamaño base si es necesario */
+  }
+
+  #imgInicio1 {
+      /* Ajustar imagen de sección 1 */
+      position: relative; /* Cambiar de absoluto para flujo normal */
+      transform: none;    /* Resetear transformaciones */
+      max-width: 70%;     /* Ajustar tamaño */
+      display: block;     /* Asegurar que sea bloque */
+      margin: 2rem auto;  /* Centrar y añadir espacio */
+      top: auto;          /* Resetear posición */
+      right: auto;
+  }
+   .welcome h1 {
+       justify-content: center; /* Centrar LEYdev en pantallas medianas */
+       text-align: center;
+   }
+   .welcome h2, .welcome #t3 {
+       text-align: center; /* Centrar texto bienvenida */
+   }
+   .welcome .tech-icons {
+       text-align: center; /* Centrar iconos */
+       margin-top: 2rem;
+   }
+
+
+  .page-content .seccion2 {
+      flex-direction: column; /* Apilar imagen y contenido verticalmente */
+      height: auto;           /* Altura automática para acomodar contenido */
+      min-height: 100vh;      /* Asegurar al menos altura de pantalla */
+      padding: 2rem;          /* Ajustar padding general */
+      align-items: center;    /* Centrar elementos */
+  }
+
+  #imgInicio2 {
+      flex-basis: auto;     /* Resetear flex-basis */
+      max-width: 80%;     /* Ajustar tamaño */
+      order: 1;             /* Mostrar imagen primero (opcional) */
+      margin-bottom: 2rem;
+  }
+
+  .seccion2-content {
+      flex-basis: auto;     /* Resetear flex-basis */
+      order: 2;             /* Mostrar contenido después */
+      align-items: center;  /* Centrar contenido */
+      text-align: center;   /* Centrar texto */
+      width: 100%;
+  }
+
+  .seccion2 .info h2 {
+      text-align: center;   /* Centrar título */
+  }
+
+  .seccion2 .tech-icons {
+      text-align: center;   /* Centrar iconos */
+      margin-top: 1rem;
+  }
+   .seccion2 .tech-icons i {
+       margin: 0 3%; /* Ajustar margen entre iconos */
+   }
+
+}
+
+
+/* === Pantallas Pequeñas (Móviles) - Ej: Menos de 768px === */
+@media (max-width: 767.98px) {
+
+  .welcome {
+      margin-top: 15%; /* Más espacio arriba por el menú fijo */
+      font-size: 1.5rem; /* Reducir fuente base */
+  }
+  /* .welcome h1 { */
+       /* Ajustar tamaño de LEYdev si es necesario, clamp() ya ayuda */
+       /* font-size: clamp(1rem, 4.775rem + 3vw, 7rem); */ /* Ejemplo de ajuste */
+  /* } */
+   /* .welcome .tech-icons i { */
+      /* Ajustar tamaño iconos si es necesario */
+      /* font-size: clamp(1.8rem, 2.65rem + 3vw, 6rem); */ /* Ejemplo */
+      /* margin: 0 2%; */
+  /* } */
+
+  #imgInicio1 {
+      max-width: 85%; /* Imagen un poco más grande en móviles */
+  }
+
+
+  .page-content .seccion2 {
+      padding: 1.5rem; /* Menos padding en móviles */
+  }
+
+   #imgInicio2 {
+       max-width: 90%; /* Imagen sección 2 más grande */
+   }
+
+   /* .seccion2 .info h2 { */
+       /* Ajustar tamaño si es necesario */
+       /* font-size: clamp(1.3rem, 1.2rem + 1.2vw, 2rem); */ /* Ejemplo */
+   /* } */
+    /* .seccion2 .tech-icons i { */
+       /* Ajustar tamaño iconos si es necesario */
+       /* margin: 0 4%; */
+   /* } */
+
+  .toggle {
+      /* Asegurar que el toggle no sea demasiado grande */
+      width: 60px;
+      height: 34px;
+      top: 0.8rem;
+      left: 0.8rem;
+  }
+  .toggle label::after {
+      width: 18px;
+      height: 18px;
+      top: 6px;
+      left: 8px;
+  }
+   .toggle input[type="checkbox"]:checked + label::after {
+      left: 33px; /* Ajustar posición del círculo del toggle */
+   }
+
+
+  .scroll-navbar {
+      /* Ajustar tamaño y posición si es necesario */
+      width: 50px;
+      height: 50px;
+      top: 1rem; /* Ajustar posición vertical */
+      right: 1rem; /* Ajustar posición horizontal */
+      font-size: 1.2rem;
+  }
+
+  .modal {
+      /* Asegurar que el modal no sea demasiado ancho */
+      width: 250px;
+      top: 8vh; /* Ajustar posición vertical */
+      right: 1rem;
+  }
+
+   .footer {
+       padding: 1.5rem 1rem; /* Menos padding */
+       font-size: 0.8rem;  /* Fuente más pequeña */
+   }
+    .footer-socials {
+       gap: 0.8rem; /* Menos espacio entre iconos sociales */
+   }
+   .footer-socials li a {
+       font-size: 1rem; /* Iconos sociales más pequeños */
+   }
+
+}
+
+/* === Pantallas Muy Pequeñas (Móviles Pequeños) - Ej: Menos de 480px === */
+@media (max-width: 479.98px) {
+   .welcome h1 {
+       /* Reducir más si es necesario */
+       /* font-size: clamp(1rem, 4.775rem + 2vw, 5rem); */
+       flex-direction: column; /* Apilar LEY y dev */
+       align-items: center;
+   }
+   .welcome .tech-icons i {
+      font-size: clamp(1.5rem, 2.65rem + 2.5vw, 5rem); /* Iconos más pequeños */
+      margin: 0 1.5%;
+  }
+   .seccion2 .tech-icons i {
+       font-size: clamp(1.8rem, 2.65rem + 3vw, 6rem); /* Iconos más pequeños */
+       margin: 0 3%;
+   }
+   #imgInicio1, #imgInicio2 {
+       max-width: 95%; /* Imágenes casi al ancho completo */
+   }
+
+}

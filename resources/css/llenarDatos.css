@@ -1,0 +1,331 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+/* --- Variables --- */
+:root {
+  --page-bg: #fcfcfc;
+  --text-color: #333;
+  --heading-color: #444;
+  --accent-color: #5995fd;
+  --border-color: #ddd;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+
+  --form-panel-bg: #fff;
+  --input-field-bg: #f0f0f0;
+  --input-text-color: #333;
+  --placeholder-color: #aaa;
+  --icon-color: #acacac; 
+  --submit-btn-bg: #5995fd;
+  --submit-btn-hover-bg: #4d84e2;
+  --submit-btn-text: #fff;
+
+  --footer-bg: #333;
+  --footer-text: white;
+  --footer-border: #ddd;
+
+  --circle-gradient: linear-gradient(45deg, #4481eb 0%, #04befe 100%);
+}
+
+body.modo-oscuro {
+  --page-bg: #121212;
+  --text-color: #ccc;
+  --heading-color: #eee;
+  --accent-color: #ffeb00;
+  --border-color: #333;
+  --shadow-color: rgba(255, 255, 255, 0.08);
+
+  --form-panel-bg: #1e1e1e;
+  --input-field-bg: #2a2a2a;
+  --input-text-color: #ddd;
+  --placeholder-color: #888;
+  --icon-color: #888; 
+  --submit-btn-bg: #ffeb00;
+  --submit-btn-hover-bg: #fff6a7;
+  --submit-btn-text: #333;
+
+  --footer-bg: #1e1e1e;
+  --footer-text: #aaa;
+  --footer-border: #333;
+
+  --circle-gradient: linear-gradient(45deg, #cebe0d 0%, #ffeb00 100%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--page-bg);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
+  transition: background-color 0.3s ease, color 0.3s ease;
+  line-height: 1.6; 
+}
+
+main {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.cont { 
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+.circle::before { 
+    content: "";
+    position: absolute;
+    height: 200vh;
+    width: 200vh;
+    top: -10%;
+    left: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    z-index: -1;
+    background: var(--circle-gradient);
+    transition: background 0.5s ease;
+}
+
+form.datos-persona-form { 
+  background-color: var(--form-panel-bg);
+  padding: 2.5rem 3rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px var(--shadow-color);
+  max-width: 500px; width: 90%;
+  display: flex; flex-direction: column; align-items: center;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1; 
+}
+
+form .title {
+  font-size: 2.2rem;
+  color: var(--heading-color);
+  margin-bottom: 25px;
+  font-weight: 600;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+.input-field:hover{
+  outline: 0.5px solid var(--submit-btn-bg);
+}
+.input-field {
+  max-width: 380px;
+  width: 100%;
+  background-color: var(--input-field-bg);
+  margin: 10px 0;
+  height: 55px;
+  border-radius: 55px;
+  display: grid;
+  grid-template-columns: 15% 85%; 
+  padding: 0 0.4rem; 
+  position: relative; 
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-field i {
+  text-align: center;
+  line-height: 55px;
+  color: var(--icon-color);
+  transition: color 0.3s ease;
+  font-size: 1.1rem;
+}
+
+
+.input-field input {
+  font-family: inherit;
+  background: none;
+  outline: none;
+  border: none;
+  line-height: 1; 
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--input-text-color);
+  padding: 0.6rem 0.4rem; 
+  width: 100%; 
+  height: 100%;
+  transition: color 0.3s ease;
+}
+
+.input-field input::placeholder {
+  color: var(--placeholder-color);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.input-field select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  font-family: inherit; 
+  background-color: transparent; 
+  border: none;
+  outline: none;
+  line-height: 1;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--input-text-color);
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  padding: 0.6rem 2.5rem 0.6rem 0.4rem; 
+  border-radius: 0;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.input-field select::-ms-expand {
+  display: none;
+}
+
+
+.input-field.select-wrapper::after { 
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 7px solid var(--icon-color);
+  pointer-events: none;
+  transition: border-color 0.3s ease;
+}
+
+
+.input-field select option {
+  background-color: var(--form-panel-bg); 
+  color: var(--text-color); 
+}
+
+body.modo-oscuro .input-field select option {
+   background-color: var(--form-panel-bg);
+   color: var(--text-color);
+}
+
+.input-field:focus-within {
+   box-shadow: 0 0 0 2px var(--accent-color);
+   border-radius: 55px; 
+}
+.input-field:focus-within i { 
+    color: var(--accent-color);
+}
+.input-field.select-wrapper:focus-within::after { 
+  border-top-color: var(--accent-color);
+}
+
+form .btn.solid {
+  font-family: "Poppins", sans-serif;
+  width: 150px;
+  background-color: var(--submit-btn-bg);
+  border: none; outline: none; height: 49px;
+  border-radius: 49px; color: var(--submit-btn-text);
+  text-transform: uppercase; font-weight: 600;
+  margin: 20px 0 10px 0; cursor: pointer;
+  transition: background-color 0.5s ease, transform 0.2s ease, color 0.3s ease;
+}
+form .btn.solid:hover {
+     background-color: var(--submit-btn-hover-bg);
+     transform: scale(1.03);
+}
+form .btn.solid:active { transform: scale(0.98); }
+
+
+.footer {
+  z-index: 10;
+  padding: 2rem 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--footer-text);
+  background-color: var(--footer-bg);
+  border-top: 1px solid var(--footer-border);
+  transition: background-color 0.3s ease, color 0.3s ease, border-top-color 0.3s ease;
+}
+.footer-info p { margin: 0.3rem 0; opacity: 0.8; }
+.footer-socials { list-style: none; display: flex; justify-content: center; margin-top: 1rem; gap: 1rem; padding: 0; }
+.footer-socials li a { color: var(--footer-text); font-size: 1.2rem; transition: color 0.3s ease; }
+.footer-socials li a:hover { color: var(--accent-color); }
+
+
+#image { 
+    transform: translateX(80px) translateY(-50%);
+    position: absolute;
+    top: 24%;
+    left: 5%;
+    width: auto;
+    height: auto;
+    max-width: 50%;
+    z-index: -2;
+}
+
+#transition-overlay { 
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffffff;
+  z-index: 99999;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+}
+
+#transition-overlay.is-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none; 
+  margin: 0;               
+}
+
+.error-message {
+    color: var(--intranet-error-text, #721c24); /* Color de error por defecto */
+    background-color: var(--intranet-error-bg, #f8d7da); /* Fondo opcional */
+    border: 1px solid var(--intranet-error-border, #f5c6cb); /* Borde opcional */
+    padding: 10px;
+    border-radius: 4px;
+    /* margin-top: 10px;  Ya lo tienes inline */
+    /* margin-bottom: 10px; Ya lo tienes inline */
+    /* text-align: center; Ya lo tienes inline */
+    /* width: 100%; Ya lo tienes inline */
+}
+
+.success-message {
+    color: var(--intranet-success-text, green); /* Color de éxito por defecto */
+    background-color: var(--intranet-success-bg, #d4edda); /* Fondo opcional */
+    border: 1px solid var(--intranet-success-border, #c3e6cb); /* Borde opcional */
+    padding: 10px;
+    border-radius: 4px;
+    /* ... otros estilos que ya tienes inline ... */
+}
+
+/* Para los errores de campo específico */
+.field-error {
+    display: none; /* Ocultos por defecto, JS los muestra */
+    color: var(--intranet-error-text, #721c24);
+    font-size: 0.8em;
+    text-align: left;
+    width: 100%;
+    padding-left: 10px; /* O ajusta según tu diseño */
+    margin-top: 2px; /* Pequeño espacio sobre el input */
+}
